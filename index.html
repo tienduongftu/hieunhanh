@@ -4,338 +4,135 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hiểu Nhanh</title>
-<meta name="description" content="Hiểu Nhanh: chứng khoán, ngân hàng và vĩ mô Việt Nam, giải thích gọn trong 3 phút đọc.">
+<meta name="description" content="Chứng khoán, ngân hàng và vĩ mô Việt Nam, giải thích gọn trong 3 phút đọc.">
+<link rel="canonical" href="https://hieunhanh.vn/">
+<meta property="og:site_name" content="Hiểu Nhanh">
+<meta property="og:title" content="Hiểu Nhanh">
+<meta property="og:description" content="Chứng khoán, ngân hàng và vĩ mô Việt Nam, giải thích gọn trong 3 phút đọc.">
+<meta property="og:url" content="https://hieunhanh.vn/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
-/* Bố cục: thanh tiêu đề gọn, hero trái-chữ phải-“thẻ 3 phút”, lưới chuyên mục, danh sách bài, bài mẫu đọc dài, thuật ngữ, đăng ký. */
-:root {
-  --bg: #f6f7f9;
-  --surface: #ffffff;
-  --ink: #141a26;
-  --muted: #5b6475;
-  --line: #e1e5ec;
-  --accent: #1f4fd1;
-  --accent-soft: #e7edfc;
-  --flash: #f2b705;
-  --up: #12805c;
-  --down: #c2362f;
-  --font-display: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e1220; --surface: #161b2c; --ink: #e8ecf4; --muted: #9aa3b5;
-    --line: #262d42; --accent: #7d9cff; --accent-soft: #1c2647; --flash: #f5c63a;
-    --up: #3ccf95; --down: #ff7a70; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0e1220; --surface: #161b2c; --ink: #e8ecf4; --muted: #9aa3b5;
-  --line: #262d42; --accent: #7d9cff; --accent-soft: #1c2647; --flash: #f5c63a;
-  --up: #3ccf95; --down: #ff7a70; color-scheme: dark;
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
-a { color: var(--accent); }
-a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--flash); outline-offset: 2px; }
-.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; text-wrap: balance; margin: 0; }
-h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; }
-h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.01em; }
-h3 { font-size: 1.12rem; font-weight: 600; }
-.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-
-/* Thanh tiêu đề */
-header.top { border-bottom: 1px solid var(--line); background: var(--surface); }
-header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; }
-.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; color: var(--ink); text-decoration: none; }
-.logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); display: grid; place-items: center; }
-.logo small { font-weight: 500; color: var(--muted); font-size: .8rem; }
-nav.menu { display: flex; gap: 20px; flex-wrap: wrap; }
-nav.menu a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: .95rem; }
-nav.menu a:hover { color: var(--ink); }
-
-/* Hero */
-.hero { padding: 56px 0 40px; }
-.hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
-.hero p.lead { color: var(--muted); font-size: 1.15rem; max-width: 34em; margin: 18px 0 24px; }
-.hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, var(--flash) 62%); padding: 0 .1em; color: var(--ink); }
-.cta { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn { display: inline-block; padding: 12px 20px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 1px solid var(--accent); font-family: inherit; font-size: 1rem; cursor: pointer; }
-.btn.primary { background: var(--accent); color: #fff; }
-.btn.ghost { background: transparent; color: var(--accent); }
-.quick-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: 0 10px 30px rgba(20,26,38,.07); }
-.quick-card .tag { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 600; color: var(--ink); background: var(--flash); padding: 3px 10px; border-radius: 99px; }
-.quick-card h3 { margin: 12px 0 8px; font-size: 1.25rem; }
-.quick-card ol { margin: 0; padding-left: 1.2em; color: var(--muted); }
-.quick-card ol li { margin: 4px 0; }
-.quick-card .foot { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: .9rem; color: var(--muted); }
-
-/* Khối chung */
-section.block { padding: 44px 0; }
-section.block + section.block { border-top: 1px solid var(--line); }
-.head-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
-.head-row p { margin: 0; color: var(--muted); }
-
-/* Chuyên mục */
-.cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.cat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px; }
-.cat .code { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); }
-.cat p { margin: 0; color: var(--muted); font-size: .95rem; }
-
-/* Danh sách bài */
-.posts { display: grid; gap: 0; border-top: 1px solid var(--line); }
-.post { display: grid; grid-template-columns: 130px 1fr 90px; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-.post .cat-name { font-size: .85rem; font-weight: 600; color: var(--accent); }
-.post h3 a { color: var(--ink); text-decoration: none; }
-.post h3 a:hover { text-decoration: underline; }
-.post p { margin: 4px 0 0; color: var(--muted); font-size: .95rem; }
-.post .time { font-family: var(--font-mono); font-size: .82rem; color: var(--muted); text-align: right; }
-.status { display: inline-block; font-size: .72rem; font-weight: 600; padding: 1px 8px; border-radius: 99px; margin-left: 6px; vertical-align: middle; }
-.status.draft { background: var(--accent-soft); color: var(--accent); }
-.status.idea { border: 1px dashed var(--line); color: var(--muted); }
-
-/* Bài mẫu */
-.article { display: grid; grid-template-columns: 1fr 260px; gap: 40px; }
-.article .body { max-width: 66ch; }
-.article .body p { margin: 0 0 1em; }
-.article .body h3 { margin: 1.6em 0 .5em; }
-.tldr { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 0 0 1.4em; }
-.tldr strong { display: block; margin-bottom: 4px; }
-.calc { overflow-x: auto; margin: 0 0 1.2em; }
-.calc table { border-collapse: collapse; width: 100%; min-width: 420px; font-size: .95rem; }
-.calc th, .calc td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; }
-.calc td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
-.calc caption { caption-side: bottom; text-align: left; font-size: .85rem; color: var(--muted); padding-top: 6px; }
-.aside { position: sticky; top: 20px; align-self: start; display: flex; flex-direction: column; gap: 14px; }
-.aside .box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; font-size: .92rem; }
-.aside .box h3 { font-size: .95rem; margin-bottom: 8px; }
-.aside ul { margin: 0; padding-left: 1.1em; color: var(--muted); }
-
-/* Thuật ngữ */
-.terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 28px; }
-.term { padding: 12px 0; border-bottom: 1px solid var(--line); }
-.term dt { font-weight: 600; }
-.term dt span { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); margin-left: 6px; }
-.term dd { margin: 2px 0 0; color: var(--muted); font-size: .95rem; }
-
-/* Đăng ký */
-.signup { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
-.signup p { margin: 8px 0 0; color: var(--muted); }
-.signup form { display: flex; gap: 10px; flex-wrap: wrap; }
-.signup input { flex: 1 1 220px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-family: inherit; font-size: 1rem; }
-#signup-msg { flex-basis: 100%; margin: 0; font-size: .9rem; color: var(--up); min-height: 1.4em; }
-
-footer { padding: 32px 0 48px; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); margin-top: 44px; }
-footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-footer p { margin: 0; max-width: 60ch; }
-
-@media (max-width: 820px) {
-  .hero .wrap, .article, .signup { grid-template-columns: 1fr; }
-  .aside { position: static; }
-  .post { grid-template-columns: 1fr; gap: 4px; }
-  .post .time { text-align: left; }
-}
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
-html { scroll-behavior: smooth; }
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Hiểu Nhanh, trang chủ">
+    <a class="logo" href="/" aria-label="Hiểu Nhanh, trang chủ">
       <span class="logo-mark" aria-hidden="true">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="#f2b705"/></svg>
       </span>
-      Hiểu Nhanh <small>hieunhanh.vn</small>
+      Hiểu Nhanh
     </a>
     <nav class="menu" aria-label="Điều hướng chính">
-      <a href="#chuyen-muc">Chuyên mục</a>
-      <a href="#bai-moi">Bài mới</a>
-      <a href="#bai-mau">Đọc thử</a>
-      <a href="#thuat-ngu">Thuật ngữ</a>
-      <a href="#dang-ky">Bản tin</a>
+      
+      <a href="/co-phieu/">Cổ phiếu</a>
+      
+      <a href="/ngan-hang/">Ngân hàng</a>
+      
+      <a href="/vi-mo/">Vĩ mô</a>
+      
+      <a href="/phai-sinh/">Phái sinh</a>
+      
+      
+      <a href="/gioi-thieu/">Giới thiệu</a>
+      
+      <a href="/thuat-ngu/">Thuật ngữ</a>
+      
     </nav>
   </div>
 </header>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <h1>Chứng khoán và vĩ mô Việt Nam, <em>hiểu trong 3 phút</em>.</h1>
-        <p class="lead">Mỗi bài trả lời đúng một câu hỏi nhà đầu tư cá nhân hay gặp: chỉ số này nghĩa là gì, tin này ảnh hưởng ai, con số này tính thế nào. Có ví dụ bằng số, có kết luận ở đầu bài, không thuật ngữ thừa.</p>
-        <div class="cta">
-          <a class="btn primary" href="#bai-mau">Đọc bài mẫu</a>
-          <a class="btn ghost" href="#dang-ky">Nhận bản tin thứ Hai</a>
-        </div>
-      </div>
-      <aside class="quick-card" aria-label="Cách một bài Hiểu Nhanh được viết">
-        <span class="tag">⚡ Khung mỗi bài</span>
-        <h3>Một câu hỏi, bốn phần</h3>
-        <ol>
-          <li><strong>Kết luận trước</strong>: 2–3 câu tóm tắt.</li>
-          <li><strong>Giải thích</strong>: bằng lời thường.</li>
-          <li><strong>Ví dụ bằng số</strong>: bảng tính đọc được.</li>
-          <li><strong>Áp dụng</strong>: dùng vào quyết định thế nào.</li>
-        </ol>
-        <div class="foot">Độ dài: 500–800 chữ · đọc khoảng 3 phút</div>
-      </aside>
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Chứng khoán và vĩ mô Việt Nam, <em>hiểu trong 3 phút</em>.</h1>
+      <p class="lead">Mỗi bài trả lời đúng một câu hỏi nhà đầu tư cá nhân hay gặp: chỉ số này nghĩa là gì, tin này ảnh hưởng ai, con số này tính thế nào. Có ví dụ bằng số, có kết luận ở đầu bài, không thuật ngữ thừa.</p>
+      <div class="cta"><a class="btn primary" href="/ngan-hang/vcb-vietcombank/">Đọc bài mới nhất</a></div>
     </div>
-  </section>
+    <aside class="quick-card" aria-label="Cách một bài Hiểu Nhanh được viết">
+      <span class="tag">⚡ Khung mỗi bài</span>
+      <h3>Một câu hỏi, bốn phần</h3>
+      <ol>
+        <li><strong>Kết luận trước</strong>: 2–3 câu tóm tắt.</li>
+        <li><strong>Giải thích</strong>: bằng lời thường.</li>
+        <li><strong>Ví dụ bằng số</strong>: bảng tính đọc được.</li>
+        <li><strong>Áp dụng</strong>: dùng vào quyết định thế nào.</li>
+      </ol>
+      <div class="foot">Độ dài: 500–800 chữ · đọc khoảng 3 phút</div>
+    </aside>
+  </div>
+</section>
 
-  <section class="block" id="chuyen-muc">
-    <div class="wrap">
-      <div class="head-row">
-        <h2>Chuyên mục</h2>
-        <p>Năm mảng, mỗi mảng một đường dẫn riêng trên site.</p>
-      </div>
-      <div class="cats">
-        <div class="cat"><span class="code">/co-phieu</span><h3>Cổ phiếu</h3><p>Đọc BCTC, định giá P/E, P/B, cổ tức, sự kiện doanh nghiệp.</p></div>
-        <div class="cat"><span class="code">/ngan-hang</span><h3>Ngân hàng</h3><p>NIM, nợ xấu, CASA, bao phủ nợ xấu. Ngành lớn nhất sàn.</p></div>
-        <div class="cat"><span class="code">/vi-mo</span><h3>Vĩ mô</h3><p>Lãi suất, tỷ giá, CPI, tín dụng và tác động lên từng ngành.</p></div>
-        <div class="cat"><span class="code">/phai-sinh</span><h3>Phái sinh</h3><p>Hợp đồng tương lai VN30, ký quỹ, ngày đáo hạn, chứng quyền.</p></div>
-        <div class="cat"><span class="code">/thuat-ngu</span><h3>Từ điển</h3><p>Mỗi thuật ngữ một dòng định nghĩa, một ví dụ.</p></div>
-      </div>
+<section class="block" id="bai-moi">
+  <div class="wrap">
+    <div class="head-row"><h2>Bài mới</h2></div>
+    
+<div class="posts">
+  
+  <article class="post">
+    <span class="cat-name">Ngân hàng</span>
+    <div>
+      <h3><a href="/ngan-hang/vcb-vietcombank/">VCB trong 3 phút: Vietcombank kiếm tiền thế nào, đang được định giá ra sao?</a></h3>
+      <p>Một trong những ngân hàng lớn nhất Việt Nam: 80% thu nhập từ cho vay, nợ xấu thấp, bộ đệm dự phòng dày. Giá hiện khoảng 1,85 lần giá trị sổ sách.</p>
     </div>
-  </section>
-
-  <section class="block" id="bai-moi">
-    <div class="wrap">
-      <div class="head-row">
-        <h2>Bài viết đợt đầu</h2>
-        <p>10 bài lên trước ngày ra mắt. <span class="status draft">Nháp</span> đã có bản viết, <span class="status idea">Ý tưởng</span> mới có đề cương.</p>
-      </div>
-      <div class="posts">
-        <article class="post"><span class="cat-name">Ngân hàng</span><div><h3><a href="#bai-mau">Vì sao cổ phiếu ngân hàng hay được định giá bằng P/B?</a><span class="status draft">Nháp</span></h3><p>Tài sản của ngân hàng chủ yếu là tiền, nên giá trị sổ sách phản ánh sát hơn lợi nhuận một năm.</p></div><span class="time">3 phút</span></article>
-        <article class="post"><span class="cat-name">Cổ phiếu</span><div><h3><a href="#bai-moi">P/E thấp có phải là rẻ?</a><span class="status idea">Ý tưởng</span></h3><p>Ba trường hợp P/E thấp là cái bẫy: lợi nhuận đột biến, ngành chu kỳ ở đỉnh, tăng vốn sắp pha loãng.</p></div><span class="time">3 phút</span></article>
-        <article class="post"><span class="cat-name">Vĩ mô</span><div><h3><a href="#bai-moi">Lãi suất tăng thì ngành nào chịu trước?</a><span class="status idea">Ý tưởng</span></h3><p>Bất động sản và chứng khoán nhạy nhất; ngân hàng tuỳ tốc độ tăng lãi suất huy động so với cho vay.</p></div><span class="time">4 phút</span></article>
-        <article class="post"><span class="cat-name">Phái sinh</span><div><h3><a href="#bai-moi">Hợp đồng tương lai VN30 trong một ví dụ</a><span class="status idea">Ý tưởng</span></h3><p>Mỗi điểm chỉ số bằng 100.000 đồng, ký quỹ ban đầu và chuyện gì xảy ra ngày đáo hạn.</p></div><span class="time">4 phút</span></article>
-        <article class="post"><span class="cat-name">Cổ phiếu</span><div><h3><a href="#bai-moi">Giá vốn bình quân tính thế nào khi mua nhiều lần?</a><span class="status idea">Ý tưởng</span></h3><p>Cách tính lãi lỗ đúng, và vì sao bán ra không làm đổi giá vốn của phần còn lại.</p></div><span class="time">3 phút</span></article>
-        <article class="post"><span class="cat-name">Vĩ mô</span><div><h3><a href="#bai-moi">Tỷ giá USD/VND tăng: ai lời, ai lỗ?</a><span class="status idea">Ý tưởng</span></h3><p>Doanh nghiệp xuất khẩu, doanh nghiệp vay ngoại tệ và dòng tiền khối ngoại.</p></div><span class="time">3 phút</span></article>
-      </div>
+    <span class="time">02/11/2026<br>6 phút</span>
+  </article>
+  
+  <article class="post">
+    <span class="cat-name">Ngân hàng</span>
+    <div>
+      <h3><a href="/ngan-hang/vi-sao-ngan-hang-dinh-gia-bang-pb/">Vì sao cổ phiếu ngân hàng hay được định giá bằng P/B?</a></h3>
+      <p>Tài sản của ngân hàng chủ yếu là tiền, nên giá trị sổ sách phản ánh sát hơn lợi nhuận một năm.</p>
     </div>
-  </section>
+    <span class="time">31/10/2026<br>2 phút</span>
+  </article>
+  
+</div>
+  </div>
+</section>
 
-  <section class="block" id="bai-mau">
-    <div class="wrap">
-      <div class="head-row">
-        <h2>Đọc thử: Vì sao cổ phiếu ngân hàng hay được định giá bằng P/B?</h2>
-      </div>
-      <div class="article">
-        <div class="body">
-          <div class="tldr">
-            <strong>Kết luận trước</strong>
-            Tài sản của ngân hàng phần lớn là các khoản cho vay và tiền gửi, ghi sổ gần với giá trị thật. Vì vậy vốn chủ sở hữu (giá trị sổ sách) là cái mốc đáng tin để so giá. P/B cho biết bạn đang trả bao nhiêu đồng cho mỗi đồng vốn đó, và nên đọc cùng ROE.
-          </div>
-
-          <h3>P/B là gì</h3>
-          <p>P/B là giá cổ phiếu chia cho giá trị sổ sách trên mỗi cổ phiếu (BVPS). BVPS bằng vốn chủ sở hữu chia số cổ phiếu đang lưu hành. P/B bằng 1 nghĩa là thị trường định giá ngân hàng đúng bằng số vốn trên sổ; trên 1 là trả thêm cho khả năng sinh lời.</p>
-
-          <h3>Vì sao không dùng P/E như các ngành khác</h3>
-          <p>Lợi nhuận ngân hàng có thể lên xuống mạnh theo một khoản mục: trích lập dự phòng. Năm nào ngân hàng trích lập nhiều, lợi nhuận giảm và P/E trông đắt, dù hoạt động cốt lõi không đổi. Vốn chủ sở hữu thì tích luỹ qua nhiều năm nên ổn định hơn.</p>
-
-          <h3>Ví dụ bằng số</h3>
-          <p>Hai ngân hàng giả định, cùng giá 30.000 đồng một cổ phiếu:</p>
-          <div class="calc">
-            <table>
-              <caption>Số liệu minh hoạ, không phải dữ liệu của ngân hàng thật.</caption>
-              <thead><tr><th>Chỉ tiêu</th><th style="text-align:right">Ngân hàng A</th><th style="text-align:right">Ngân hàng B</th></tr></thead>
-              <tbody>
-                <tr><td>Giá cổ phiếu (đồng)</td><td class="num">30.000</td><td class="num">30.000</td></tr>
-                <tr><td>BVPS (đồng)</td><td class="num">20.000</td><td class="num">15.000</td></tr>
-                <tr><td>P/B</td><td class="num">1,5 lần</td><td class="num">2,0 lần</td></tr>
-                <tr><td>ROE</td><td class="num">12%</td><td class="num">22%</td></tr>
-                <tr><td>Lợi nhuận mỗi đồng giá trả (ROE ÷ P/B)</td><td class="num">8,0%</td><td class="num">11,0%</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p>Nhìn riêng P/B, A rẻ hơn. Nhưng B dùng mỗi đồng vốn sinh lời gần gấp đôi, nên tính trên số tiền bạn bỏ ra, B lại sinh lợi nhiều hơn. Đây là lý do P/B luôn phải đặt cạnh ROE.</p>
-
-          <h3>Áp dụng thế nào</h3>
-          <p>So P/B của một ngân hàng với chính lịch sử 5 năm của nó, và với các ngân hàng có ROE tương đương. Nếu P/B thấp bất thường, kiểm tra nợ xấu và tỷ lệ bao phủ nợ xấu trước: vốn trên sổ chỉ đáng tin khi các khoản vay thực sự thu hồi được.</p>
-        </div>
-
-        <aside class="aside">
-          <div class="box">
-            <h3>Công thức</h3>
-            <p class="mono" style="margin:0">P/B = Giá ÷ BVPS<br>BVPS = Vốn CSH ÷ Số CP</p>
-          </div>
-          <div class="box">
-            <h3>Đọc tiếp</h3>
-            <ul>
-              <li>ROE là gì</li>
-              <li>Nợ xấu và tỷ lệ bao phủ</li>
-              <li>P/E thấp có phải là rẻ?</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
+<section class="block" id="chuyen-muc">
+  <div class="wrap">
+    <div class="head-row"><h2>Chuyên mục</h2></div>
+    <div class="cats">
+      
+      <a class="cat" href="/co-phieu/">
+        <h3>Cổ phiếu</h3><p>Đọc BCTC, định giá P/E, P/B, cổ tức, sự kiện doanh nghiệp.</p>
+        <span class="code">0 bài</span>
+      </a>
+      
+      <a class="cat" href="/ngan-hang/">
+        <h3>Ngân hàng</h3><p>NIM, nợ xấu, CASA, bao phủ nợ xấu. Ngành lớn nhất sàn.</p>
+        <span class="code">2 bài</span>
+      </a>
+      
+      <a class="cat" href="/vi-mo/">
+        <h3>Vĩ mô</h3><p>Lãi suất, tỷ giá, CPI, tín dụng và tác động lên từng ngành.</p>
+        <span class="code">0 bài</span>
+      </a>
+      
+      <a class="cat" href="/phai-sinh/">
+        <h3>Phái sinh</h3><p>Hợp đồng tương lai VN30, ký quỹ, ngày đáo hạn, chứng quyền.</p>
+        <span class="code">0 bài</span>
+      </a>
+      
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="block" id="thuat-ngu">
-    <div class="wrap">
-      <div class="head-row">
-        <h2>Thuật ngữ một dòng</h2>
-        <p>Trang /thuat-ngu sẽ có khoảng 100 mục, đây là 6 mục đầu.</p>
-      </div>
-      <dl class="terms">
-        <div class="term"><dt>NIM<span>Net Interest Margin</span></dt><dd>Biên lãi thuần: ngân hàng lời bao nhiêu % trên mỗi đồng tài sản sinh lãi.</dd></div>
-        <div class="term"><dt>CASA<span>Current Account Saving Account</span></dt><dd>Tiền gửi không kỳ hạn: nguồn vốn rẻ nhất của ngân hàng.</dd></div>
-        <div class="term"><dt>T+2</dt><dd>Cổ phiếu mua hôm nay về tài khoản sau hai ngày làm việc.</dd></div>
-        <div class="term"><dt>Biên độ giá</dt><dd>Mức giá tối đa được tăng hoặc giảm trong phiên: HOSE ±7%, HNX ±10%, UPCoM ±15%.</dd></div>
-        <div class="term"><dt>VN30F1M</dt><dd>Hợp đồng tương lai chỉ số VN30 đáo hạn tháng gần nhất.</dd></div>
-        <div class="term"><dt>Khối ngoại mua ròng</dt><dd>Giá trị nhà đầu tư nước ngoài mua trừ giá trị bán ra trong phiên.</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="block" id="dang-ky">
-    <div class="wrap">
-      <div class="signup">
-        <div>
-          <h2>Bản tin sáng thứ Hai</h2>
-          <p>Ba bài mới nhất và một thuật ngữ trong tuần, gửi lúc 7 giờ sáng. Huỷ bất cứ lúc nào.</p>
-        </div>
-        <form id="signup-form" novalidate>
-          <label for="email" class="mono" style="position:absolute;left:-9999px">Email</label>
-          <input id="email" name="email" type="email" placeholder="email@cua-ban.vn" autocomplete="email" required>
-          <button class="btn primary" type="submit">Đăng ký</button>
-          <p id="signup-msg" role="status"></p>
-        </form>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p><strong>Hiểu Nhanh</strong> · hieunhanh.vn<br>Nội dung chỉ nhằm giải thích kiến thức, không phải khuyến nghị mua bán chứng khoán. Ví dụ bằng số trong bài là minh hoạ, trừ khi ghi rõ nguồn.</p>
-    <p>Giới thiệu · Liên hệ · Chính sách bảo mật</p>
+    <p><strong>© 2026 Hiểu Nhanh</strong> · hieunhanh.vn<br>
+      Không sao chép nội dung khi chưa được phép. Nội dung chỉ nhằm giải thích kiến thức, không phải khuyến nghị mua bán chứng khoán. Ví dụ bằng số trong bài là minh hoạ, trừ khi ghi rõ nguồn.</p>
+    <p><a href="/gioi-thieu/">Giới thiệu</a> · <a href="/thuat-ngu/">Thuật ngữ</a></p>
   </div>
 </footer>
-
-<script>
-  // Bản nháp: form chưa nối với dịch vụ gửi thư, chỉ kiểm tra định dạng email.
-  document.getElementById("signup-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var input = document.getElementById("email");
-    var msg = document.getElementById("signup-msg");
-    if (!input.checkValidity()) {
-      msg.style.color = "var(--down)";
-      msg.textContent = "Email chưa đúng định dạng, vui lòng kiểm tra lại.";
-      return;
-    }
-    msg.style.color = "var(--up)";
-    msg.textContent = "Bản nháp: form chưa nối với dịch vụ gửi thư, email chưa được lưu.";
-  });
-</script>
 </body>
 </html>
